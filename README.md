@@ -2,9 +2,9 @@ Projeto Biblioteca Cloud
 
 Ryan Felipe, Miguel Renato, Pedro Souza e João Victor
 
-Ryan: Criação das pasta frontend e backend e organização das pastas no backend.
+Ryan: Criação das pasta frontend e backend e organização das pastas e arquivos no backend
 
-Miguel:
+Miguel: 
 
 João Victor:
 
