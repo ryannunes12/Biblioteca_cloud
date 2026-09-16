@@ -6,6 +6,6 @@ Ryan: Criação das pasta frontend e backend e organização das pastas e arquiv
 
 Miguel: 
 
-João Victor:
+João Victor: Criação do CSS pro formulário HTML
 
 Pedro Souza:
