@@ -84,68 +84,8 @@
     <div id="loading" class="loading">Buscando livros... Por favor, aguarde.</div>
     <div id="results" class="results"></div>
 
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', async function(e) {
-            e.preventDefault(); // Impede o recarregamento da página
-            
-            const query = document.getElementById('titleInput').value.trim();
-            const resultsContainer = document.getElementById('results');
-            const loadingText = document.getElementById('loading');
-            
-            // Limpa resultados anteriores e mostra o loading
-            resultsContainer.innerHTML = '';
-            loadingText.style.display = 'block';
 
-            // Formata o termo de busca para a URL da API (substitui espaços por +)
-            const formattedQuery = encodeURIComponent(query);
-            // LINHA NOVA (Corrigida):
-const apiUrl = `https://openlibrary.org{formattedQuery}&fields=title,author_name,first_publish_year,cover_i`;
+    <script src="script.js"></script>
 
-
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error('Erro na requisição');
-                
-                const data = await response.json();
-                loadingText.style.display = 'none';
-
-                if (data.docs.length === 0) {
-                    resultsContainer.innerHTML = '<p>Nenhum livro encontrado.</p>';
-                    return;
-                }
-
-                // Limita a exibição aos 12 primeiros resultados para melhor performance
-                const books = data.docs.slice(0, 12);
-
-                books.forEach(book => {
-                    const title = book.title || 'Título desconhecido';
-                    const author = book.author_name ? book.author_name.join(', ') : 'Autor desconhecido';
-                    const year = book.first_publish_year || 'N/A';
-                    
-                    // URL da imagem da capa. Se não houver cover_i, usa uma imagem padrão vazia
-                    const coverUrl = book.cover_i 
-                        ? `https://openlibrary.org{book.cover_i}-M.jpg` 
-                        : 'https://placeholder.com';
-
-                    // Cria o card do livro
-                    const bookCard = document.createElement('div');
-                    bookCard.className = 'book-card';
-                    bookCard.innerHTML = `
-                        <img src="${coverUrl}" alt="Capa do livro ${title}">
-                        <div class="book-title">${title}</div>
-                        <div class="book-author">Por: ${author}</div>
-                        <div style="font-size: 12px; color: #999; margin-top: 5px;">Ano: ${year}</div>
-                    `;
-                    
-                    resultsContainer.appendChild(bookCard);
-                });
-
-            } catch (error) {
-                console.error(error);
-                loadingText.style.display = 'none';
-                resultsContainer.innerHTML = '<p style="color: red;">Ocorreu um erro ao buscar os dados. Tente novamente.</p>';
-            }
-        });
-    </script>
 </body>
 </html>
