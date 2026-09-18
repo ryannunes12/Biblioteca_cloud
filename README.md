@@ -6,6 +6,6 @@ Ryan: Criação das pasta frontend e backend e organização das pastas e arquiv
 
 Miguel: Criação do JavasCript para o formulário HTML, criação do Server.js no frontend e conexão do JS e CSS no HTML
 
-João Victor: Criação do CSS pro formulário HTML
+João Victor: Criação do CSS pro formulário HTML, criação do controllers.js e routes.js no backend
 
 Pedro Souza:
